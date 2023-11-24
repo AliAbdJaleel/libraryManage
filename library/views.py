@@ -52,6 +52,12 @@ def funEditeBook(request,pk):
     return render(request,'library/funEdit.html',{'myform':form})
 
 
+
+def fundelete(request,pk):
+    data = Book.objects.get(id=pk)
+    data.delete()
+    return redirect('/library/')
+
 from django.views.generic import ListView , DetailView , CreateView , DeleteView , UpdateView
 
 # class BookList(ListView):         # the name we use in the html file is the name of model_list or object_list
