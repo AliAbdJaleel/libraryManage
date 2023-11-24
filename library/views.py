@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 
 # Create your views here.
 from .models import Author,Book,Review
@@ -29,6 +29,7 @@ def funCreateBook(request):
         form = BooksForm(request.POST)  # add ,request.FILE if data contain imeges or files
         if form.is_valid():
             form.save()
+            return redirect('/library/')
     else:
         form = BooksForm
     return render(request,'library/add_book.html',{'myform':form})
