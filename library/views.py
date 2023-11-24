@@ -28,11 +28,28 @@ def funCreateBook(request):
     if request.method == 'POST':
         form = BooksForm(request.POST)  # add ,request.FILE if data contain imeges or files
         if form.is_valid():
+           # my = form.save(commit=False) # قبل ان تقوم بعملية الحفظ
+           # my.author = request.user   # احفظ اسم المؤلف هو اسم المستخدم
             form.save()
             return redirect('/library/')
     else:
         form = BooksForm
     return render(request,'library/add_book.html',{'myform':form})
+
+
+
+def funEditeBook(request,pk):
+    data = Book.objects.get(id=pk)
+    if request.method == 'POST':
+        form = BooksForm(request.POST,instance=data)  # add ,request.FILE if data contain imeges or files
+        if form.is_valid():
+           # my = form.save(commit=False) # قبل ان تقوم بعملية الحفظ
+           # my.author = request.user   # احفظ اسم المؤلف هو اسم المستخدم
+            form.save()
+            return redirect('/library/')
+    else:
+        form = BooksForm(instance=data)
+    return render(request,'library/funEdit.html',{'myform':form})
 
 
 from django.views.generic import ListView , DetailView , CreateView , DeleteView , UpdateView

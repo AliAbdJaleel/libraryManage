@@ -1,0 +1,7 @@
+<h4>  تعديل كتاب باستخدام الدالة</h4>
+ <form method="post" >  <!--  add  , enctype="multipart/form-data" if data contain images or fiels -->
+   {% csrf_token %}
+    {{myform}}
+    <input type="submit" value="حفظ">
+
+</form>
