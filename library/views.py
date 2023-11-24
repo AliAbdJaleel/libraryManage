@@ -7,12 +7,17 @@ from .models import Author,Book,Review
 
 
 
-def funcBookDetail():
-    pass
+def funcBookDetail(request,book_id):
+    data = Book.objects.get(id=book_id) # book_id is variable send to model Book to get specific row depend on id
+    context ={
+        'muhammed': data
+    }
+    return render(request,'library/book_detail.html',context)
+    
 
 
 def funcBooklist(request):
-    data = Book.objects.all()  
+    data = Book.objects.all() #  
     context = {
         'ali':data
     }
@@ -22,12 +27,12 @@ def funcBooklist(request):
 
 from django.views.generic import ListView , DetailView , CreateView , DeleteView , UpdateView
 
-class BookList(ListView):
-    model = Book
+# class BookList(ListView):
+#     model = Book
 
 
-class BookDetail(DetailView):
-    model = Book
+""" class BookDetail(DetailView):
+    model = Book """
 
 
 

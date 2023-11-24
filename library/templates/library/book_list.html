@@ -18,6 +18,19 @@
     {% endfor %}
 
 </ul> -->
+<h4> books </h4>
+<ul>
+  {% for book in ali %}
+
+    <li> 
+
+      <br>
+<a href="/library/{{book.id}}">{{book}}  - {{book.author}} </a>
+    </li>
 
 
-{{ali}}
+  {% endfor%}
+  
+
+</ul>
+
