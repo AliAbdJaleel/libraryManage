@@ -29,7 +29,7 @@ urlpatterns = [
     path('library/<int:pk>',BookDetail.as_view()),
     path('library/<int:pk>/funEdit',funEditeBook),
      path('library/<int:pk>/fundel',fundelete),
-    path('library/<int:pk>/edit/',EditBook.as_view),
-    path('library/<int:pk>/delete/',DeleteBook.as_view),
+    path('library/<int:pk>/edit/',EditBook.as_view()),
+    path('library/<int:pk>/delete/',DeleteBook.as_view()),
 
 ]

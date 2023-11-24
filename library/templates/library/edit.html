@@ -1,7 +1,7 @@
 <h4> تعديل كتاب</h4>
-<form method="post" , enctype="multipart/form-data">
+<form method="post" > <!-- enctype="multipart/form-data">     --> 
    {% csrf_token %}
-    {{book}}
+    {{form}}
     <input type="submit" value="Save">
 
 </form>
